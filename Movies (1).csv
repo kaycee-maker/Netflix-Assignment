@@ -1,0 +1,13 @@
+movie_id,title,genre,release_year,duration_mins
+M001,Stranger Things,Sci-Fi,2016,55
+M002,The Witcher,Fantasy,2019,60
+M003,Squid Game,Thriller,2021,54
+M004,Extraction,Action,2020,116
+M005,The Queen's Gambit,Drama,2020,60
+M006,Dark,Sci-Fi,2017,52
+M007,Glass Onion,Mystery,2022,139
+M008,Our Planet,Documentary,2019,50
+M009,Lupin,Crime,2021,48
+M010,Enola Holmes,,2020,123
+M011,All Quiet on the Western Front,War,2022,148
+M003,Squid Game,Thriller,2021,54
