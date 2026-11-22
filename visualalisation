@@ -105,25 +105,6 @@ print("Chart saved.")
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
 
-# Plot 1: Watches by Genre
-genre_plot = genre_stats.copy()
-genre_plot['genre'] = genre_plot['genre'].fillna('Unspecified')
-sns.barplot(data=genre_plot, x='total_watches', y='genre', ax=axes[0], palette='viridis', hue='genre', legend=False)
-axes[0].set_title('Total Watch Sessions by Genre', fontsize=12, fontweight='bold')
-axes[0].set_xlabel('Watch Count (Deduplicated)')
-axes[0].set_ylabel('Genre')
-for i, v in enumerate(genre_plot['total_watches']):
-    axes[0].text(v + 0.08, i, str(v), va='center')
-axes[0].set_xlim(0, 4.6)
-
-# Plot 2: Completion Rate by Runtime
-valid_df = df.dropna(subset=['completion_rate']).copy()
-sns.scatterplot(data=valid_df, x='duration_mins', y='completion_rate', hue='format', s=100, ax=axes[1], palette='Set1')
-axes[1].axhline(100, color='gray', linestyle='--', alpha=0.6)
-axes[1].set_title('Completion Rate vs. Content Runtime', fontsize=12, fontweight='bold')
-axes[1].set_xlabel('Total Runtime (Minutes)')
-axes[1].set_ylabel('Completion Rate (%)')
-axes[1].set_ylim(40, 110)
 
 plt.tight_layout()
 plt.savefig('content_popularity.png', dpi=150)
@@ -142,15 +123,6 @@ for i, v in enumerate(genre_plot['total_watches']):
 axes[0].set_xlim(0, 4.6)
 
 valid_df = df.dropna(subset=['completion_rate']).copy()
-sns.barplot (
-    data= genre_plot, 
-    x = "total_watches",
-    y = "genre",
-    hue = "genre",
-    ax = axes[0],
-    palette = "viridis",
-    legend = False,
-)
 sns.scatterplot(data=valid_df, x='duration_mins', y='completion_rate', hue='format', s=100, ax=axes[1], palette='Set1')
 axes[1].axhline(100, color='gray', linestyle='--', alpha=0.6)
 axes[1].set_title('Completion Rate vs. Content Runtime', fontsize=12, fontweight='bold')
